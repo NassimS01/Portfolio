@@ -6,8 +6,8 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--z-fixed);
-  background-color: var(--body-color);
+  /* z-index: var(--z-fixed); */
+  background-color: ${({ theme }) => theme.nbColor};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   border-radius: 0 0 1.5rem 1.5rem;
 
@@ -19,9 +19,15 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     column-gap: 1rem;
   }
 
+  & .container-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
   & .nav__logo,
   .nav__toggle {
-    color: var(--title-color);
+    color: ${({ theme }) => theme.text};
     font-weight: var(--font-semi-bold);
     font-size: var(--h3-font-size);
   }
@@ -35,7 +41,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--title-color);
+    color: ${({ theme }) => theme.text};
     font-weight: var(--font-medium);
     transition: 0.3s;
   }
@@ -52,7 +58,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     align-items: center;
     background-color: transparent;
     transition: 0.3s;
-    color: var(--title-color);
+    color: ${({ theme }) => theme.text};
     font-weight: var(--font-medium);
     font-size: var(--normal-font-size);
   }
@@ -64,7 +70,8 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   & .lang__menu ul {
     position: absolute;
     margin-left: -5px;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.nbColor};
+    color: ${({ theme }) => theme.text};
     border: 1px solid #f8f8f8;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
@@ -72,7 +79,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   }
 
   & .lang__menu ul li a:hover {
-    background-color: #f2f2f2;
+    background-color: ${({ theme }) => theme.nbUlHover};
   }
 
   & .lang__menu:hover ul {
@@ -130,7 +137,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
       bottom: -100%;
       left: 0;
       width: 100%;
-      background-color: var(--body-color);
+      background-color: ${({ theme }) => theme.nbColor};
       padding: 2rem 1.5rem 4rem;
       box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
       border-radius: 1.5rem 1.5rem 0 0;
@@ -180,10 +187,10 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     .nav__close {
       position: absolute;
       left: 1.3rem;
-      bottom: 0.5rem;
+      bottom: 0.7rem;
       font-size: 1.5rem;
       cursor: pointer;
-      color: var(--title-color);
+      color: ${({ theme }) => theme.text};
     }
 
     .nav__close:hover {

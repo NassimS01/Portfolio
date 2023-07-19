@@ -1,14 +1,25 @@
-import { useTranslation } from "react-i18next";
-import Header from "./components/header/Header";
-import { GlobalStyle } from "./styles/GlobalStyles";
+import { useState } from "react";
+
+import {
+  useTranslation,
+  Header,
+  GlobalStyle,
+  Themes,
+} from "./components/rutes";
+import { ThemeProvider } from "styled-components";
+import Switch from "./components/Switch/Switch";
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [theme, setTheme] = useState(localStorage.getItem("valueTheme"));
+
   return (
     <>
-      <Header></Header>
-      <h1>{t("home")}</h1>
-      <GlobalStyle />
+      <ThemeProvider theme={Themes[theme]}>
+        <Header></Header>
+        <Switch theme={theme} setTheme={setTheme}></Switch>
+        <GlobalStyle />
+      </ThemeProvider>
     </>
   );
 }

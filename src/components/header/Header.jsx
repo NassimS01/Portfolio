@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AiOutlineHome,
   AiOutlineUser,
@@ -11,6 +11,7 @@ import {
 import { BiWorld } from "react-icons/bi";
 import { HeaderStyled } from "./HeaderStyles";
 import { useTranslation } from "react-i18next";
+import Switch from "../Switch/Switch";
 
 const Header = ({ className }) => {
   // ChangeLanguage
@@ -24,15 +25,16 @@ const Header = ({ className }) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("lng", lng);
   };
-
+  
   return (
     <>
       <HeaderStyled className={className}>
         <nav className="nav container">
-          <a href="/index.html" className="nav__logo">
-            Nassim.dev
-          </a>
-
+          <div className="container-left">
+            <a href="/index.html" className="nav__logo">
+              Nassim.dev
+            </a>
+          </div>
           <div className={toggle ? "nav__menu show__menu" : "nav__menu"}>
             <ul className="nav__list grid">
               <li href="" className="nav__item">

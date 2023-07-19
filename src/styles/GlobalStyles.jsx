@@ -57,6 +57,12 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
      scroll-behavior: smooth;
+     background-color: ${({ theme }) => theme.bodyBgc};
+  }
+
+  #root {
+     height: 100vh;
+     max-width: 1200px;
   }
 
   h1,
@@ -108,8 +114,8 @@ export const GlobalStyle = createGlobalStyle`
   /*================ LAYOUT ================ */
 
   .container {
-     max-width: 1024px;
-     margin-left: auto;
+     max-width: 1000px;
+       margin-left: auto;
      margin-right: auto;
   }
 
