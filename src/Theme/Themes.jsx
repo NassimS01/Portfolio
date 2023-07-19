@@ -12,9 +12,9 @@ const DarkTheme = {
   nbUlHover: "#202020",
 };
 
-const theme = {
+const themeValue = {
   light: LightTheme,
   dark: DarkTheme,
 };
 
-export default theme;
+export default themeValue;

@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { GlobalStyle } from "../../styles/GlobalStyles";
 
 export const HeaderStyled = styled.header.attrs({ className: "header" })`
   width: 100%;
@@ -7,7 +6,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   top: 0;
   left: 0;
   /* z-index: var(--z-fixed); */
-  background-color: ${({ theme }) => theme.nbColor};
+  background-color: var(--color-navbar);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   border-radius: 0 0 1.5rem 1.5rem;
 
@@ -27,7 +26,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
 
   & .nav__logo,
   .nav__toggle {
-    color: ${({ theme }) => theme.text};
+    color: var(--color-text);
     font-weight: var(--font-semi-bold);
     font-size: var(--h3-font-size);
   }
@@ -41,7 +40,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: ${({ theme }) => theme.text};
+    color: var(--color-text);
     font-weight: var(--font-medium);
     transition: 0.3s;
   }
@@ -58,7 +57,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     align-items: center;
     background-color: transparent;
     transition: 0.3s;
-    color: ${({ theme }) => theme.text};
+    color: var(--color-text);
     font-weight: var(--font-medium);
     font-size: var(--normal-font-size);
   }
@@ -70,8 +69,8 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   & .lang__menu ul {
     position: absolute;
     margin-left: -5px;
-    background-color: ${({ theme }) => theme.nbColor};
-    color: ${({ theme }) => theme.text};
+    background: var(--color-navbar);
+    color: var(--color-text);
     border: 1px solid #f8f8f8;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
@@ -79,7 +78,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   }
 
   & .lang__menu ul li a:hover {
-    background-color: ${({ theme }) => theme.nbUlHover};
+    background: var(--background-body);
   }
 
   & .lang__menu:hover ul {
@@ -127,7 +126,6 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   @media screen and (max-width: 768px) {
     top: initial;
     bottom: 0;
-
     .nav {
       height: var(--header-height);
     }
@@ -137,12 +135,13 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
       bottom: -100%;
       left: 0;
       width: 100%;
-      background-color: ${({ theme }) => theme.nbColor};
+      z-index: 1000;
+      background-color: var(--color-navbar);
       padding: 2rem 1.5rem 4rem;
       box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
       border-radius: 1.5rem 1.5rem 0 0;
       transition: 0.3s;
-      z-index: var(--z-tooltip);
+      /* z-index: var(--z-tooltip); */
     }
 
     /* Show menu */
@@ -190,7 +189,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
       bottom: 0.7rem;
       font-size: 1.5rem;
       cursor: pointer;
-      color: ${({ theme }) => theme.text};
+      color: var(--color-text);
     }
 
     .nav__close:hover {
@@ -200,6 +199,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     .nav__toggle {
       cursor: pointer;
       transform: rotate(90deg);
+      z-index: 1;
     }
 
     .nav__close,

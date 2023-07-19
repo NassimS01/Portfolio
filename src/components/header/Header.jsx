@@ -25,7 +25,7 @@ const Header = ({ className }) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("lng", lng);
   };
-  
+
   return (
     <>
       <HeaderStyled className={className}>

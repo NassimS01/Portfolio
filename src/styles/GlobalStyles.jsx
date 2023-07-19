@@ -2,15 +2,22 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
+[data-theme="dark"] {
+  --color-text: #ccc;
+  --nabvar-color: #131415;
+  --color-navbar: #131415;
+  --background-body: #202020;
+}
+
 :root {
   --header-height: 3rem;
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --title-color: #333333;
-  --title-color-dark: #000;
+  --color-text: #333333;
+  --color-navbar: #f1f1f1;
   --text-color: #757575;
   --link-color-hover: #147efb;
-  --body-color: #fafafa;
+  --background-body: #f5f5f5;
   --container-color: #fff;
   --container-color: #fff;
 
@@ -55,20 +62,30 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
   }
 
+  body {
+     background-color: var(--color-navbar);
+  }
+
   html {
      scroll-behavior: smooth;
-     background-color: ${({ theme }) => theme.bodyBgc};
+  }
+
+  .theme {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+     background-color: var(--background-body);
   }
 
   #root {
-     height: 100vh;
-     max-width: 1200px;
+    height: 94vh;
+   max-width: 1200px;
   }
 
   h1,
   h2, 
   h3 {
-     color: var(--title-color);
+     color: var(--color-text);
      font-weight: var(--font-semi-bold);
   }
 
@@ -99,7 +116,7 @@ export const GlobalStyle = createGlobalStyle`
 
   .sectionTitle {
      font-size: var(--h1-font-size);
-     color: var(--title-color);
+     color: var(--color-text);
   }
 
   .sectionSubtitle {
@@ -128,7 +145,7 @@ export const GlobalStyle = createGlobalStyle`
 
   .button {
     display: inline-block;
-    background-color: var(--title-color);
+    background-color: var(--color-text);
     color: (--container-color);
     padding: 1.25rem 2rem;
     border-radius: 1rem;

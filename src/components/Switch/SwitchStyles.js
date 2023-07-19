@@ -4,7 +4,6 @@ export const LabelStyled = styled.label`
   position: absolute;
   left: 31%;
   margin-top: 32px;
-
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 35px;
   --switch-height: 10px;
@@ -12,9 +11,11 @@ export const LabelStyled = styled.label`
   --circle-diameter: 17px;
   --circle-bg: rgb(0, 56, 146);
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+  z-index: 1;
 
   & input {
     display: none;
+    z-index: 1;
   }
 
   & .slider {
@@ -27,6 +28,7 @@ export const LabelStyled = styled.label`
     border-radius: 999px;
     position: relative;
     cursor: pointer;
+    z-index: 1;
   }
 
   & .circle {
@@ -55,6 +57,7 @@ export const LabelStyled = styled.label`
     justify-content: center;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
       0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    z-index: 1;
   }
 
   & .slider .circle::before {
@@ -68,6 +71,7 @@ export const LabelStyled = styled.label`
     -o-transition: all 500ms;
     transition: all 500ms;
     opacity: 0;
+    z-index: 1;
   }
 
   & input:checked + .slider .circle {
@@ -90,16 +94,13 @@ export const LabelStyled = styled.label`
 
   @media screen and (max-width: 768px) {
     bottom: 18px;
-    left: 170px;
+    left: 30%;
+    transform: translateX(-50%);
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 560px) {
     bottom: 18px;
-    left: 160px;
-  }
-
-  @media screen and (max-width: 320px) {
-    bottom: 18px;
-    left: 150px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
