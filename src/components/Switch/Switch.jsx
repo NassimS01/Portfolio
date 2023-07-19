@@ -13,10 +13,9 @@ const Switch = (props) => {
     localStorage.setItem("valueTheme", localValue);
   };
 
-
   return (
     <>
-      <LabelStyled>
+      <LabelStyled className="toggle">
         <input type="checkbox" onClick={() => handleTheme()} />
         <div className="slider">
           <div className="circle" theme={theme}></div>

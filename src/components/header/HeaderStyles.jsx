@@ -5,13 +5,13 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   position: fixed;
   top: 0;
   left: 0;
-  /* z-index: var(--z-fixed); */
+  padding: 0px 12px;
   background-color: var(--color-navbar);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   border-radius: 0 0 1.5rem 1.5rem;
 
   & .nav {
-    height: calc(var(--header-height) + 1.5rem);
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   .nav__toggle {
     color: var(--color-text);
     font-weight: var(--font-semi-bold);
-    font-size: var(--h3-font-size);
+    font-size: 20px;
   }
 
   & .nav__list {
@@ -59,7 +59,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     transition: 0.3s;
     color: var(--color-text);
     font-weight: var(--font-medium);
-    font-size: var(--normal-font-size);
+    font-size: 16px;
   }
 
   & .icon-language {
@@ -126,8 +126,9 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   @media screen and (max-width: 768px) {
     top: initial;
     bottom: 0;
+    padding: 0px 13px;
     .nav {
-      height: var(--header-height);
+      height: 50px;
     }
 
     .nav__menu {
