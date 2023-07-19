@@ -1,13 +1,10 @@
 import { useState } from "react";
-
-import {
-  useTranslation,
-  Header,
-  GlobalStyle,
-  Themes,
-} from "./components/rutes";
+import { useTranslation } from "react-i18next";
+import { GlobalStyle } from "./styles/GlobalStyles";
+import Themes from "./Theme/Themes";
 import { ThemeProvider } from "styled-components";
 import Switch from "./components/Switch/Switch";
+import Header from "./components/header/Header";
 
 function App() {
   const { t, i18n } = useTranslation();
