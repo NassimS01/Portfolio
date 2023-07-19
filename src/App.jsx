@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 import themes from "./Theme/Themes";
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("valueTheme"));
+  const [theme, setTheme] = useState(localStorage.getItem("valueTheme") || "light");
   return (
       <div className="theme" data-theme={theme}>
         <Header></Header>
