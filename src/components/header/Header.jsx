@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import {
   AiOutlineHome,
   AiOutlineUser,
@@ -8,17 +8,22 @@ import {
   AiOutlineClose,
   AiOutlineMenuFold,
 } from "react-icons/ai";
+import { BiWorld } from "react-icons/bi";
 import { HeaderStyled } from "./HeaderStyles";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ className }) => {
+  // ChangeLanguage
+  const { t, i18n } = useTranslation();
+
   // Toggle Menu
-
   const [toggle, setToggle] = useState(false);
-  const [changeLanguage, setChangeLanguage] = useState(false);
 
-  const handleLanguage = () => {
-     setChangeLanguage()
-  }
+  // Toggle Language
+  const handleChangeLng = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("lng", lng);
+  };
 
   return (
     <>
@@ -32,34 +37,47 @@ const Header = ({ className }) => {
             <ul className="nav__list grid">
               <li href="" className="nav__item">
                 <a href="#home" className="nav__link">
-                  <AiOutlineHome className="nav__icon active-link" /> Home
+                  <AiOutlineHome className="nav__icon active-link" />
+                  {t("home")}
                 </a>
               </li>
               <li href="" className="nav__item">
                 <a href="#about" className="nav__link">
-                  <AiOutlineUser className="nav__icon" /> About
+                  <AiOutlineUser className="nav__icon" /> {t("about")}
                 </a>
               </li>
               <li href="" className="nav__item">
                 <a href="#skills" className="nav__link">
-                  <AiOutlineFileText className="nav__icon" /> Skills
+                  <AiOutlineFileText className="nav__icon" /> {t("skills")}
                 </a>
               </li>
               <li href="" className="nav__item">
                 <a href="#projects" className="nav__link">
-                  <AiOutlineLaptop className="nav__icon" /> Projects
+                  <AiOutlineLaptop className="nav__icon" /> {t("projects")}
                 </a>
               </li>
               <li href="" className="nav__item">
                 <a href="#contact" className="nav__link">
-                  <AiOutlineSend className="nav__icon" /> Contact
+                  <AiOutlineSend className="nav__icon" /> {t("contact")}
                 </a>
               </li>
               <div className="lang__menu">
-                <div className="selected__lang">English</div>
+                <button className="selected__lang">
+                  <BiWorld size="24px" className="icon-language" />{" "}
+                  {localStorage.getItem("lng") == "es"
+                    ? "Lenguaje"
+                    : "Language"}
+                </button>
                 <ul>
                   <li>
-                    <a className="sp">Spanish</a>
+                    <a className="sp" onClick={() => handleChangeLng("es")}>
+                      Spanish
+                    </a>
+                  </li>
+                  <li>
+                    <a className="en" onClick={() => handleChangeLng("en")}>
+                      English
+                    </a>
                   </li>
                 </ul>
               </div>

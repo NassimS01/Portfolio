@@ -50,21 +50,20 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     cursor: pointer;
     display: flex;
     align-items: center;
+    background-color: transparent;
+    transition: 0.3s;
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
   }
 
-  & .selected__lang:before {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 24px;
-    margin: 0px 5px 0px 10px;
-    background-image: url("https://flagsapi.com/US/flat/24.png");
+  & .icon-language {
+    margin-right: 5px;
   }
 
   & .lang__menu ul {
     position: absolute;
-    margin: 0;
-    padding: 4px 10px;
+    margin-left: -5px;
     background-color: #fff;
     border: 1px solid #f8f8f8;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
@@ -72,7 +71,7 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     display: none;
   }
 
-  & .lang__menu ul:hover {
+  & .lang__menu ul li a:hover {
     background-color: #f2f2f2;
   }
 
@@ -81,14 +80,16 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
   }
 
   & .lang__menu ul li a {
+    padding: 4px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     cursor: pointer;
+    border-bottom: 1px solid #ccc;
   }
 
-  & .lang__menu ul li a:before {
+  & .lang__menu ul li .sp:before {
     content: "";
     display: flex;
     margin-right: 5px;
@@ -98,16 +99,21 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     background-image: url("https://flagsapi.com/ES/flat/24.png");
   }
 
-  /* react state */
-
-  & .selected__lang.sp:before {
-    background-image: url("https://flagsapi.com/ES/flat/24.png");
+  & .lang__menu ul li .en:before {
+    content: "";
+    display: flex;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px 0px -7px;
+    background-image: url("https://flagsapi.com/US/flat/24.png");
   }
 
   /* ACTIVE LINK */
 
   & .active-link,
-  .nav__link:hover {
+  .nav__link:hover,
+  .selected__lang:hover {
     color: var(--link-color-hover);
   }
 
@@ -144,13 +150,36 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
       gap: 2rem;
     }
 
+    .selected__lang {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .icon-language {
+      width: 16px;
+      height: 16px;
+      margin-bottom: 2px;
+    }
+
+    & .lang__menu ul {
+      margin-left: -100px;
+    }
+
+    & .lang__menu:hover ul {
+      display: flex;
+      flex-direction: row;
+    }
+
     .nav__icon {
       font-size: 1.2rem;
     }
 
     .nav__close {
       position: absolute;
-      right: 1.3rem;
+      left: 1.3rem;
       bottom: 0.5rem;
       font-size: 1.5rem;
       cursor: pointer;
