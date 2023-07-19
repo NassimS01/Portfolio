@@ -9,10 +9,11 @@ import Header from "./components/header/Header";
 function App() {
   const { t, i18n } = useTranslation();
   const [theme, setTheme] = useState(localStorage.getItem("valueTheme"));
+  const thisTheme = Themes[theme]
 
   return (
     <>
-      <ThemeProvider theme={Themes[theme]}>
+      <ThemeProvider theme={thisTheme}>
         <Header></Header>
         <Switch theme={theme} setTheme={setTheme}></Switch>
         <GlobalStyle />
