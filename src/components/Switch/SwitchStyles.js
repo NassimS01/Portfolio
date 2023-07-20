@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const LabelStyled = styled.label`
   position: absolute;
-  left: 31%;
+  left: 20vw;
   margin-top: 32px;
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 35px;
@@ -88,11 +88,27 @@ export const LabelStyled = styled.label`
     height: 0;
   }
 
-  @media screen and (max-width: 1024px) {
-    left: 150px;
+  @media screen and (max-width: 1800px) {
+    left: 29vw;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1520px) {
+    left: 25vw;
+  }
+
+  @media screen and (max-width: 1400px) {
+    left: 23vw;
+  }
+
+  @media screen and (max-width: 1250px) {
+    left: 20vw;
+  }
+
+  @media screen and (max-width: 1105px) {
+    left: 16vw;
+  }
+
+  @media screen and (max-width: 840px) {
     bottom: 18px;
     left: 30%;
     transform: translateX(-50%);

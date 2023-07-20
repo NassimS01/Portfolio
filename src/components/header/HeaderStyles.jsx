@@ -123,7 +123,9 @@ export const HeaderStyled = styled.header.attrs({ className: "header" })`
     color: var(--link-color-hover);
   }
 
-  @media screen and (max-width: 768px) {
+
+
+  @media screen and (max-width: 840px) {
     top: initial;
     bottom: 0;
     padding: 0px 13px;

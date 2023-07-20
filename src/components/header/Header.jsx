@@ -11,9 +11,8 @@ import {
 import { BiWorld } from "react-icons/bi";
 import { HeaderStyled } from "./HeaderStyles";
 import { useTranslation } from "react-i18next";
-import Switch from "../Switch/Switch";
 
-const Header = ({ className }) => {
+const Header = ({ className }, children) => {
   // ChangeLanguage
   const { t, i18n } = useTranslation();
 
@@ -26,10 +25,10 @@ const Header = ({ className }) => {
     localStorage.setItem("lng", lng);
   };
 
-  return (
-    <>
+  return ( 
+  <>
       <HeaderStyled className={className}>
-        <nav className="nav container">
+        <nav className="nav container" children>
           <div className="container-left">
             <a href="/index.html" className="nav__logo">
               Nassim.dev
@@ -89,8 +88,8 @@ const Header = ({ className }) => {
               onClick={() => setToggle(!toggle)}
             />
           </div>
-          <div className="nav__toggle" onClick={() => setToggle(!toggle)}>
-            <AiOutlineMenuFold size="25px" />
+          <div className="nav__toggle">
+            <AiOutlineMenuFold size="25px" onClick={() => setToggle(!toggle)} />
           </div>
         </nav>
       </HeaderStyled>
