@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 export const LabelStyled = styled.label`
   position: absolute;
-  left: 20vw;
-  margin-top: 32px;
+  left: 31vw;
+  margin-top: 31px;
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 35px;
   --switch-height: 10px;
